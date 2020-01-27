@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AddressBook</string>
+
+    <string-array name="search_prop">
+        <item>Name</item>
+        <item>Phone</item>
+        <item>Street</item>
+        <item>City</item>
+        <item>State</item>
+        <item>DOB - Day</item>
+        <item>DOB - Month</item>
+        <item>DOB - Year</item>
+        <item>Website URL</item>
+    </string-array>
+    <string name="title_activity_new_contact_form">NewContactForm</string>
+    <string name="title_activity_display_all_contact">displayAllContact</string>
+</resources>
