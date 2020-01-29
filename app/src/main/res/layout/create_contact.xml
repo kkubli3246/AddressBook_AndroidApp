@@ -99,22 +99,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Exit to Main Menu"
+            android:text="Exit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_delete"
+            app:layout_constraintStart_toEndOf="@+id/btn_Contact"
             app:layout_constraintTop_toBottomOf="@+id/include_personal" />
 
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             android:layout_marginTop="16dp"
             android:background="#F44336"
             android:text="Delete Contact"
             android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toStartOf="@+id/btn_toMainMenu"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/btn_Contact"
             app:layout_constraintStart_toEndOf="@+id/btn_submit"
+            app:layout_constraintTop_toBottomOf="@+id/include_personal" />
+
+        <Button
+            android:id="@+id/btn_Contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:background="#BF03A9F4"
+            android:text="Contact"
+            android:visibility="invisible"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/btn_toMainMenu"
+            app:layout_constraintStart_toEndOf="@+id/btn_delete"
             app:layout_constraintTop_toBottomOf="@+id/include_personal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

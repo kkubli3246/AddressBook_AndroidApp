@@ -20,7 +20,7 @@ public class NewContactForm extends AppCompatActivity {
     View includePersonal;
     View includeBusiness;
 
-    Button btn_mainMenu, btn_submit, btn_delete;
+    Button btn_mainMenu, btn_submit, btn_delete, btn_contact;
 
     AddressBook ab;
 
@@ -41,6 +41,7 @@ public class NewContactForm extends AppCompatActivity {
         btn_mainMenu = findViewById(R.id.btn_toMainMenu);
         btn_submit = findViewById(R.id.btn_submit);
         btn_delete = findViewById(R.id.btn_delete);
+        btn_contact = findViewById(R.id.btn_Contact);
 
         Bundle incomingIntent = getIntent().getExtras();
 
@@ -51,6 +52,7 @@ public class NewContactForm extends AppCompatActivity {
             positionToEdit = incomingIntent.getInt("edited");
 
             btn_delete.setVisibility(View.VISIBLE);
+            btn_contact.setVisibility(View.VISIBLE);
 
             if(type.equals("personal")){
                 radioGroup.check(rbtn_Personal.getId());
@@ -212,6 +214,79 @@ public class NewContactForm extends AppCompatActivity {
 
         });
 
+        btn_contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Contact.class);
+                if(rbtn_Personal.isChecked()){
+                    EditText et_nameP = findViewById(R.id.et_nameP);
+                    EditText et_phoneP = findViewById(R.id.et_phoneP);
+                    EditText et_month = findViewById(R.id.et_mm);
+                    EditText et_day = findViewById(R.id.et_dd);
+                    EditText et_year = findViewById(R.id.et_yyyy);
+                    EditText et_street = findViewById(R.id.et_streetP);
+                    EditText et_city = findViewById(R.id.et_cityP);
+                    EditText et_state = findViewById(R.id.et_stateP);
+                    EditText et_zip = findViewById(R.id.et_zipP);
+
+                    //Collect Input Data to create a New Contact
+                    String name = et_nameP.getText().toString();
+                    String phone = et_phoneP.getText().toString();
+                    String street = et_street.getText().toString();
+                    String city = et_city.getText().toString();
+                    String state = et_state.getText().toString();
+                    String zip = et_zip.getText().toString();
+
+                    int month = Integer.parseInt(et_month.getText().toString());
+                    int day = Integer.parseInt(et_day.getText().toString());
+                    int year = Integer.parseInt(et_year.getText().toString());
+
+                    i.putExtra("name", name);
+                    i.putExtra("phone", phone);
+                    i.putExtra("street", street);
+                    i.putExtra("city", city);
+                    i.putExtra("state", state);
+                    i.putExtra("zip", zip);
+                    i.putExtra("month", month);
+                    i.putExtra("day", day);
+                    i.putExtra("year", year);
+                    i.putExtra("type", "personal");
+
+                    startActivity(i);
+                }
+
+                if(rbtn_Business.isChecked()){
+                    EditText et_name = findViewById(R.id.et_nameB);
+                    EditText et_phone = findViewById(R.id.et_phoneB);
+                    EditText et_street = findViewById(R.id.et_streetB);
+                    EditText et_city = findViewById(R.id.et_cityB);
+                    EditText et_state = findViewById(R.id.et_stateB);
+                    EditText et_zip = findViewById(R.id.et_zipB);
+                    EditText et_website = findViewById(R.id.et_website);
+
+                    String name = et_name.getText().toString();
+                    String phone = et_phone.getText().toString();
+                    String street = et_street.getText().toString();
+                    String city = et_city.getText().toString();
+                    String state = et_state.getText().toString();
+                    String zip = et_zip.getText().toString();
+                    String website = et_website.getText().toString();
+
+                    i.putExtra("name", name);
+                    i.putExtra("phone", phone);
+                    i.putExtra("street", street);
+                    i.putExtra("city", city);
+                    i.putExtra("state", state);
+                    i.putExtra("zip", zip);
+                    i.putExtra("website", website);
+                    i.putExtra("type", "business");
+
+                    startActivity(i);
+                }
+
+                startActivity(i);
+            }
+        });
 
 
 

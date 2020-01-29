@@ -2,6 +2,8 @@ package com.example.addressbook;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class ContactAdapter extends BaseAdapter {
 
@@ -36,8 +40,8 @@ public class ContactAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View oneContactLine;
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final View oneContactLine;
 
         LayoutInflater inflater = (LayoutInflater)mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         oneContactLine = inflater.inflate(R.layout.one_contact_view,parent,false);
